@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turbo GT</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/x-icon" href="images/logo.webp" />
+  </head>
+  <body class="bg-gray-200 font-thin">
+    <header>
+      <nav class="bg-gray-100">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <!-- Mobile menu button-->
+              <button
+                type="button"
+                id="mobile-menu-button"
+                class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <span class="absolute -inset-0.5"></span>
+                <span class="sr-only">Open main menu</span>
+                <!--
+                Icon when menu is closed.
+    
+                Menu open: "hidden", Menu closed: "block"
+              -->
+                <svg
+                  class="block h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+                <!--
+                Icon when menu is open.
+    
+                Menu open: "block", Menu closed: "hidden"
+              -->
+                <svg
+                  class="hidden h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+            >
+              <div class="flex flex-shrink-0 items-center">
+                <img
+                  class="h-12 w-auto"
+                  src="images/logo.webp"
+                  alt="Logo"
+                />
+              </div>
+              <div class="hidden sm:ml-6 sm:block mt-2">
+                <div class="flex space-x-4">
+                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                  <a
+                    href="index.html"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+                    >Front page</a
+                  >
+                  <a
+                    href="drive.html"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+                    >Drive on a circuit</a
+                  >
+                  <a
+                    href="routes.html"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+                    >Routes</a
+                  >
+                  <a
+                    href="informacio.html"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+                    >Information</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden" id="mobile-menu">
+          <div class="space-y-1 px-2 pb-3 pt-2">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a
+              href="index.html"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 block rounded-md px-3 py-2 text-sm font-medium"
+              >Front page</a
+            >
+            <a
+              href="drive.html"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 block rounded-md px-3 py-2 text-sm font-medium"
+              >Drive on a circuit</a
+            >
+            <a
+              href="routes.html"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 block rounded-md px-3 py-2 text-sm font-medium"
+              >Routes</a
+            >
+            <a
+              href="informacio.html"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+              >Information</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Títol de la pàgina -->
+    <div class="relative">
+      <video
+        class="w-full h-44 object-cover"
+        src="images/video_lambo.mp4"
+        alt="Video Lamborghini"
+        autoplay
+        muted
+        loop
+      ></video>
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-gray-200"
+      >
+        <h1
+          class="flex flex-nowrap text-center text-4xl sm:text-5xl lg:text-6xl"
+        >
+          Drive a Lamborghini on a Circuit
+        </h1>
+      </div>
+    </div>
+    <!-- Fi de títol de la pàgina -->
+
+    <div
+      class="flex justify-center items-center py-10 text-gray-100 relative bg-[url('images/image_fons_porsche.webp')] bg-cover"
+    >
+      <!-- Card amb el Lamborghini -->
+      <div class="max-w-3xl w-full rounded-lg flex shadow-xl bg-gray-950">
+        <div class="w-full p-6">
+          <p class="text-lg font-semibold">Lamborghini Gallardo</p>
+          <p class="mb-4">Power: 515 hp | 325km/h | 0-100km/h: 3.4S</p>
+          <img
+            class="w-full rounded-lg transition-transform duration-500 ease-in-out transform hover:scale-110"
+            src="images/lamborghini.webp"
+            alt="Image Lamborghini"
+          />
+        </div>
+
+        <div class="hidden sm:block lg:block">
+          <div class="w-full p-8 rounded-r-lg">
+            <ul class="text-sm text-gray-300 mb-4">
+              <li class="flex items-center mb-2">
+                Give it gas and enjoy driving a 515 hp Lamborghini Gallardo with
+                a V10 engine and All-Wheel Drive
+              </li>
+            </ul>
+            <hr class="border-gray-400" />
+
+            <p class="text-sm font-semibold mt-4 text-center">Step 1:</p>
+            <p class="text-sm text-center text-gray-300">
+              Reception and validation of the voucher at the circuit facilities.
+            </p>
+
+            <p class="text-sm font-semibold mt-4 text-center">Step 2:</p>
+            <p class="text-sm text-center text-gray-300">
+              Drive the supercar with a professional instructor and enjoy the
+              experience.
+            </p>
+
+            <p class="text-sm font-semibold mt-4 text-center">Step 3:</p>
+            <p class="text-sm text-center text-gray-300">
+              Don't forget to enjoy the free extras included in your experience.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Fi de card amb el Lamborghini -->
+    </div>
+
+    <div class="flex justify-center items-center p-5">
+      <div
+        class="text-gray-600 p-10 max-w-3xl w-full bg-gray-100 rounded-lg shadow-xl"
+      >
+        <h1 class="text-lg font-bold">
+          Requirements to carry out the experience
+        </h1>
+        <ul class="text-sm mb-4 mt-4">
+          <li class="flex items-center mb-2">
+            <svg
+              class="h-5 w-5"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <polyline points="9 6 15 12 9 18" />
+            </svg>
+            Minimum age 18 years
+          </li>
+          <li class="flex items-center mb-2">
+            <svg
+              class="h-5 w-5"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <polyline points="9 6 15 12 9 18" />
+            </svg>
+            Have a valid driving license (B)
+          </li>
+          <li class="flex items-center mb-2">
+            <svg
+              class="h-5 w-5"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <polyline points="9 6 15 12 9 18" />
+            </svg>
+            Sign conditions contract
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-4 text-center text-gray-500 text-sm mt-4">
+      <p>Turbo GT &copy; 2024. Tots els drets reservats.</p>
+
+      <a href="index.html" class="text-center font-medium me-4">Front page</a>
+      <a href="drive.html" class="text-center font-medium me-4"
+        >Drive on a circuit</a
+      >
+      <a href="routes.html" class="text-center font-medium text-sm">Routes</a>
+    </footer>
+    <!-- Fi de Footer -->
+    <script src="index.js"></script>
+  </body>
+</html>

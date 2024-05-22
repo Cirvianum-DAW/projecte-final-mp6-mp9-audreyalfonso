@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turbo GT</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/x-icon" href="images/logo.webp" />
+  </head>
+  <body class="bg-gray-200 font-thin">
+    <header>
+      <nav class="bg-gray-100">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <!-- Mobile menu button-->
+              <button
+                type="button"
+                id="mobile-menu-button"
+                class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <span class="absolute -inset-0.5"></span>
+                <span class="sr-only">Open main menu</span>
+                <!--
+                Icon when menu is closed.
+    
+                Menu open: "hidden", Menu closed: "block"
+              -->
+                <svg
+                  class="block h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+                <!--
+                Icon when menu is open.
+    
+                Menu open: "block", Menu closed: "hidden"
+              -->
+                <svg
+                  class="hidden h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+            >
+              <div class="flex flex-shrink-0 items-center">
+                <img
+                  class="h-12 w-auto"
+                  src="images/logo.webp"
+                  alt="Logo"
+                />
+              </div>
+              <div class="hidden sm:ml-6 sm:block mt-2">
+                <div class="flex space-x-4">
+                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                  <a
+                    href="index.html"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+                    >Front page</a
+                  >
+                  <a
+                    href="drive.html"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+                    >Drive on a circuit</a
+                  >
+                  <a
+                    href="routes.html"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+                    >Routes</a
+                  >
+                  <a
+                    href="informacio.html"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+                    >Information</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden" id="mobile-menu">
+          <div class="space-y-1 px-2 pb-3 pt-2">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a
+              href="index.html"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 block rounded-md px-3 py-2 text-sm font-medium"
+              >Front page</a
+            >
+            <a
+              href="drive.html"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 block rounded-md px-3 py-2 text-sm font-medium"
+              >Drive on a circuit</a
+            >
+            <a
+              href="routes.html"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 block rounded-md px-3 py-2 text-sm font-medium"
+              >Routes</a
+            >
+            <a
+              href="informacio.html"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+              >Information</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Títol de la pàgina -->
+    <div class="relative">
+      <video
+        class="w-full h-96 lg:h-80 object-cover"
+        src="images/video_routes.mp4"
+        alt="Video d'una ruta"
+        autoplay
+        muted
+        loop
+      ></video>
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-gray-200"
+      >
+        <h1 class="text-center text-6xl sm:text-6xl">Become a route</h1>
+        <h2 class="text-lg mt-4">
+          Enjoy the experience of driving a supercar on the road
+        </h2>
+
+        <!-- Ocultem en pantalles petites -->
+        <div class="hidden lg:block">
+          <div class="flex">
+            <div class="text-center text-gray-200 mt-4 mr-4">
+              <h1 class="font-bold text-3xl mb-4">1</h1>
+              <p class="bg-gray-100 bg-opacity-80 rounded-lg text-gray-700 p-4">
+                Choose between Ferrari, Lamborghini or Porsche
+              </p>
+            </div>
+
+            <div class="text-center text-gray-200 mt-4 mr-4">
+              <h1 class="font-bold text-3xl mb-4">2</h1>
+              <p class="bg-gray-100 bg-opacity-80 rounded-lg text-gray-700 p-4">
+                Choose as many km as you want and duration
+              </p>
+            </div>
+
+            <div class="text-center text-gray-200 mt-4 mr-4">
+              <h1 class="font-bold text-3xl mb-4">3</h1>
+              <p class="bg-gray-100 bg-opacity-80 rounded-lg text-gray-700 p-4">
+                In the next step you can choose place, date and time
+              </p>
+            </div>
+
+            <div class="text-center text-gray-200 mt-4">
+              <h1 class="font-bold text-3xl mb-4">4</h1>
+              <p class="bg-gray-100 bg-opacity-80 rounded-lg text-gray-700 p-4">
+                Open voucher available, undated (ideal as a gift)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fi de títol de la pàgina -->
+
+    <div class="flex justify-center flex-wrap items-center py-10 gap-10">
+      <!-- Card amb Ferrari -->
+      <div
+        class="max-w-sm bg-gray-900 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
+      >
+        <div class="p-5 text-center">
+          <h5
+            class="mb-1 text-2xl font-bold tracking-tight text-gray-300 dark:text-white"
+          >
+            Ferrari F430 F1
+          </h5>
+          <p class="mb-1 font-normal text-gray-400 dark:text-gray-400">
+            490 HP · V8 Engine · Rear-wheel drive
+          </p>
+        </div>
+        <picture>
+          <img class="" src="images/ferrari.webp" alt="Imatge d'un Ferrari" />
+        </picture>
+        <div class="p-5 flex justify-between">
+          <div class="flex-grow">
+            <p class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400">
+              11 km
+            </p>
+            <hr class="mb-2" />
+            <p class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400">
+              16 km
+            </p>
+            <hr class="mb-2" />
+            <p class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400">
+              23 km
+            </p>
+          </div>
+
+          <div class="flex-grow">
+            <p
+              class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400 text-right"
+            >
+              20 min
+            </p>
+            <hr class="mb-2" />
+            <p
+              class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400 text-right"
+            >
+              25 min
+            </p>
+            <hr class="mb-2" />
+            <p
+              class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400 text-right"
+            >
+              30 min
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Fi de card amb Ferrari -->
+
+      <!-- Card amb Lamborghini -->
+      <div
+        class="max-w-sm bg-gray-900 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
+      >
+        <div class="p-5 text-center">
+          <h5
+            class="mb-1 text-2xl font-bold tracking-tight text-gray-300 dark:text-white"
+          >
+            Lamborghini Gallardo
+          </h5>
+          <p class="mb-1 font-normal text-gray-400 dark:text-gray-400">
+            510 HP · V10 Engine · All-Wheel Drive
+          </p>
+        </div>
+        <picture>
+          <img
+            class=""
+            src="images/lamborghini.webp"
+            alt="Imatge d'un Lamborghini"
+          />
+        </picture>
+        <div class="p-5 flex justify-between">
+          <div class="flex-grow">
+            <p class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400">
+              7 km
+            </p>
+            <hr class="mb-2" />
+            <p class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400">
+              21 km
+            </p>
+            <hr class="mb-2" />
+            <p class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400">
+              50 km
+            </p>
+          </div>
+
+          <div class="flex-grow">
+            <p
+              class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400 text-right"
+            >
+              15 min
+            </p>
+            <hr class="mb-2" />
+            <p
+              class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400 text-right"
+            >
+              30 min
+            </p>
+            <hr class="mb-2" />
+            <p
+              class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400 text-right"
+            >
+              60 min
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Fi de card amb Lamborghini -->
+
+      <!-- Card amb Porsche -->
+      <div
+        class="max-w-sm bg-gray-900 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
+      >
+        <div class="p-5 text-center">
+          <h5
+            class="mb-1 text-2xl font-bold tracking-tight text-gray-300 dark:text-white"
+          >
+            Porsche 911 GT3
+          </h5>
+          <p class="mb-1 font-normal text-gray-400 dark:text-gray-400">
+            500 HP · 6 Boxer Engine · All-Wheel Drive
+          </p>
+        </div>
+        <picture>
+          <img class="" src="images/porsche.webp" alt="Imatge d'un Ferrari" />
+        </picture>
+        <div class="p-5 flex justify-between">
+          <div class="flex-grow">
+            <p class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400">
+              7 km
+            </p>
+            <hr class="mb-2" />
+            <p class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400">
+              21 km
+            </p>
+            <hr class="mb-2" />
+            <p class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400">
+              50 km
+            </p>
+          </div>
+
+          <div class="flex-grow">
+            <p
+              class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400 text-right"
+            >
+              15 min
+            </p>
+            <hr class="mb-2" />
+            <p
+              class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400 text-right"
+            >
+              30 min
+            </p>
+            <hr class="mb-2" />
+            <p
+              class="mb-3 font-bold text-xl text-gray-400 dark:text-gray-400 text-right"
+            >
+              60 min
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Fi de card amb Porsche -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-4 text-center text-gray-500 text-sm mt-4">
+      <p>Turbo GT &copy; 2024. Tots els drets reservats.</p>
+
+      <a href="index.html" class="text-center font-medium me-4">Front page</a>
+      <a href="drive.html" class="text-center font-medium me-4"
+        >Drive on a circuit</a
+      >
+      <a href="routes.html" class="text-center font-medium text-sm">Routes</a>
+    </footer>
+    <!-- Fi de Footer -->
+    <script src="index.js"></script>
+  </body>
+</html>
