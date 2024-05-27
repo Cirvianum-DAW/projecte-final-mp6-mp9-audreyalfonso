@@ -115,25 +115,23 @@ const createCarForm = document.getElementById("create-car-form");
 createCarForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  // Obtener los valores del formulario
+  // Obtenim els valors del formulari
   const name = document.getElementById("name").value;
   const model = document.getElementById("model").value;
   const color = document.getElementById("color").value;
   const image = document.getElementById("image").value;
 
-  // Verificar si el usuario está autenticado
   if (!isAuthenticated()) {
     console.error("User is not authenticated");
-    // Aquí puedes mostrar un mensaje de error o redirigir a la página de inicio de sesión
     return;
   }
 
-  // Obtener el ID de usuario del usuario autenticado
+  // Obtenim l'ID de l'usuari autentificat
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user.id;
 
   try {
-    // Construir el objeto del nuevo coche
+    // Contruim l'objecte nou del cotxe
     const newCar = {
       name,
       model,
@@ -142,23 +140,21 @@ createCarForm.addEventListener("submit", async (event) => {
       userId,
     };
 
-    // Realizar una solicitud POST para agregar el nuevo coche a la API de coches
+    // Realitzem una sol·licitud POST per afegir el nou cotxe a la API de cotxes
     const addedCar = await fetchFromApi("cars", {
       method: "POST",
       body: newCar,
     });
 
     console.log("Car added successfully:", addedCar);
-    // Aquí puedes hacer algo después de que se haya agregado el coche, como redirigir a otra página o mostrar un mensaje de éxito
 
-    // Mostrar un mensaje de éxito
+    // Mostrem un missatge d'èxit
     alert("Car added successfully: " + addedCar.name);
 
-    // Refrescar la página
+    // Refresquem la pàgina
     window.location.reload();
   } catch (error) {
     console.error("Error adding car:", error.message);
-    // Aquí puedes mostrar un mensaje de error al usuario
   }
 });
 
@@ -166,16 +162,16 @@ createCarForm.addEventListener("submit", async (event) => {
 
 //------------------- Eliminar cotxes -----------------------
 
-window.handleDeleteCar = async function (carId) {
-  try {
-    await fetchFromApi(`cars/${carId}`, {
-      method: "DELETE",
-    });
-    console.log("Car deleted successfully");
-    location.reload();
-  } catch (error) {
-    console.error("Error deleting car:", error);
-  }
-};
+// window.handleDeleteCar = async function (carId) {
+//   try {
+//     await fetchFromApi(`cars/${carId}`, {
+//       method: "DELETE",
+//     });
+//     console.log("Car deleted successfully");
+//     location.reload();
+//   } catch (error) {
+//     console.error("Error deleting car:", error);
+//   }
+// };
 
 //----------------- Fi eliminar cotxes -----------------------
