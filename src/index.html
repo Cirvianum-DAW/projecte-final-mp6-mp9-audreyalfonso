@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Turbo GT</title>
     <link rel="stylesheet" href="./styles.css" />
     <link rel="icon" type="image/x-icon" href="images/logo.webp" />
-  </head>
-  <body class="font-thin">
+</head>
+<body class="font-thin">
     <header>
       <nav class="bg-gray-100">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -79,23 +79,33 @@
                   >
                   <a
                     href="drive.html"
-                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+                    id="drive-link"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium hidden"
                     >Drive on a circuit</a
                   >
                   <a
                     href="routes.html"
-                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+                    id="routes-link"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium hidden"
                     >Routes</a
                   >
                   <a
                     href="informacio.html"
-                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+                    id="information-link"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium hidden"
                     >Information</a
                   >
                   <a
                     href="../public/login.html"
+                    id="login-link"
                     class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
                     >Log in</a
+                  >
+                  <a
+                    href="#"
+                    id="logout-link"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium hidden"
+                    >Log out</a
                   >
                 </div>
               </div>
@@ -106,7 +116,6 @@
         <!-- Mobile menu, show/hide based on menu state. -->
         <div class="sm:hidden" id="mobile-menu">
           <div class="space-y-1 px-2 pb-3 pt-2">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a
               href="index.html"
               class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 block rounded-md px-3 py-2 text-sm font-medium"
@@ -114,23 +123,33 @@
             >
             <a
               href="drive.html"
-              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 block rounded-md px-3 py-2 text-sm font-medium"
+              id="mobile-drive-link"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 block rounded-md px-3 py-2 text-sm font-medium hidden"
               >Drive on a circuit</a
             >
             <a
               href="routes.html"
-              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 block rounded-md px-3 py-2 text-sm font-medium"
+              id="mobile-routes-link"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 block rounded-md px-3 py-2 text-sm font-medium hidden"
               >Routes</a
             >
             <a
               href="informacio.html"
-              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+              id="mobile-information-link"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium hidden"
               >Information</a
             >
             <a
               href="../public/login.html"
+              id="mobile-login-link"
               class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
               >Log in</a
+            >
+            <a
+              href="#"
+              id="mobile-logout-link"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium hidden"
+              >Log out</a
             >
           </div>
         </div>
@@ -168,6 +187,6 @@
       <a href="routes.html" class="text-center font-medium text-sm">Routes</a>
     </footer>
     <!-- Fi de Footer -->
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
   </body>
 </html>
