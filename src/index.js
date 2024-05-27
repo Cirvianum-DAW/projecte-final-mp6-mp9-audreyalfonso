@@ -151,8 +151,8 @@ createCarForm.addEventListener("submit", async (event) => {
     // Mostrem un missatge d'èxit
     alert("Car added successfully: " + addedCar.name);
 
-    // Refresquem la pàgina
-    window.location.reload();
+    // Refresquem la pàgina i redirigim
+    window.location.href = "drive.html";
   } catch (error) {
     console.error("Error adding car:", error.message);
   }
