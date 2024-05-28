@@ -13,7 +13,7 @@ document
 
 //--------------------------------------
 
-import { isAuthenticated, logout } from "../src/services/auth.js";
+import { isAuthenticated, logout } from "./services/auth.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const driveLink = document.getElementById("drive-link");
@@ -84,7 +84,13 @@ function createCarCard(car) {
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
           Enjoy the experience of driving a ${car.name} ${car.model} in ${car.color} color.
         </p>
-        <button onclick="(() => handleDeleteCar('${car.id}'))()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-neutral-600 rounded-lg hover:bg-neutral-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <a
+          href="editCar.html"
+          class="edit-car-button inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-neutral-600 rounded-lg hover:bg-neutral-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" data-car-id="${car.id}"
+        >
+          Edit Car
+        </a>
+        <button class="delete-car-button inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" data-car-id="${car.id}">
           Delete Car
         </button>
       </div>
@@ -99,6 +105,20 @@ document.addEventListener("DOMContentLoaded", async () => {
       ".flex.justify-center.flex-wrap.items-center.py-10.gap-10"
     );
     container.innerHTML = cars.map((car) => createCarCard(car)).join("");
+
+    // Añadir event listeners a los botones de eliminar
+    const deleteButtons = document.querySelectorAll(".delete-car-button");
+    deleteButtons.forEach((button) => {
+      button.addEventListener("click", async (event) => {
+        const carId = event.target.getAttribute("data-car-id");
+
+        // Obtener el userId del almacenamiento local
+        const user = JSON.parse(localStorage.getItem("user"));
+        const userId = user.id;
+
+        await handleDeleteCar(userId, carId);
+      });
+    });
   } catch (error) {
     console.error("Error:", error);
   }
@@ -162,16 +182,17 @@ createCarForm.addEventListener("submit", async (event) => {
 
 //------------------- Eliminar cotxes -----------------------
 
-// window.handleDeleteCar = async function (carId) {
-//   try {
-//     await fetchFromApi(`cars/${carId}`, {
-//       method: "DELETE",
-//     });
-//     console.log("Car deleted successfully");
-//     location.reload();
-//   } catch (error) {
-//     console.error("Error deleting car:", error);
-//   }
-// };
+import { deleteCar } from "./services/carsApi.js";
+
+async function handleDeleteCar(userId, carId) {
+  try {
+    await deleteCar(userId, carId);
+    console.log("Car deleted successfully");
+    alert("Car dedleted successfully");
+    location.reload(); // Refresquem la pàgina després d'eliminar
+  } catch (error) {
+    console.error("Error deleting car:", error);
+  }
+}
 
 //----------------- Fi eliminar cotxes -----------------------

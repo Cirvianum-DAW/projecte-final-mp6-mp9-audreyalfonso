@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turbo GT</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/x-icon" href="images/logo.webp" />
+  </head>
+  <body class="bg-gray-200 font-thin">
+    <header>
+      <nav class="bg-gray-100">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <!-- Mobile menu button-->
+              <button
+                type="button"
+                id="mobile-menu-button"
+                class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <span class="absolute -inset-0.5"></span>
+                <span class="sr-only">Open main menu</span>
+                <!--
+                Icon when menu is closed.
+    
+                Menu open: "hidden", Menu closed: "block"
+              -->
+                <svg
+                  class="block h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+                <!--
+                Icon when menu is open.
+    
+                Menu open: "block", Menu closed: "hidden"
+              -->
+                <svg
+                  class="hidden h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+            >
+              <div class="flex flex-shrink-0 items-center">
+                <img class="h-12 w-auto" src="images/logo.webp" alt="Logo" />
+              </div>
+              <div class="hidden sm:ml-6 sm:block mt-2">
+                <div class="flex space-x-4">
+                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                  <a
+                    href="index.html"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium"
+                    >Front page</a
+                  >
+                  <a
+                    href="drive.html"
+                    id="drive-link"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium hidden"
+                    >Drive on a circuit</a
+                  >
+                  <a
+                    href="routes.html"
+                    id="routes-link"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium hidden"
+                    >Routes</a
+                  >
+                  <a
+                    href="informacio.html"
+                    id="information-link"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium hidden"
+                    >Information</a
+                  >
+                  <a
+                    href="#"
+                    id="logout-link"
+                    class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium hidden"
+                    >Log out</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden" id="mobile-menu">
+          <div class="space-y-1 px-2 pb-3 pt-2">
+            <a
+              href="index.html"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 block rounded-md px-3 py-2 text-sm font-medium"
+              >Front page</a
+            >
+            <a
+              href="drive.html"
+              id="mobile-drive-link"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 block rounded-md px-3 py-2 text-sm font-medium hidden"
+              >Drive on a circuit</a
+            >
+            <a
+              href="routes.html"
+              id="mobile-routes-link"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 block rounded-md px-3 py-2 text-sm font-medium hidden"
+              >Routes</a
+            >
+            <a
+              href="informacio.html"
+              id="mobile-information-link"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium hidden"
+              >Information</a
+            >
+            <a
+              href="#"
+              id="mobile-logout-link"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-800 rounded-md px-3 py-2 text-sm font-medium hidden"
+              >Log out</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Títol de la pàgina -->
+    <div class="relative bg-black">
+      <picture>
+        <source
+          class="w-full object-cover h-44 rounded-t-lg"
+          media="(max-width: 799px)"
+          srcset="images/fons_header_mobile.webp"
+          alt="Imatge del header"
+        />
+        <source
+          class="w-full object-cover h-44 rounded-t-lg"
+          media="(min-width: 800px)"
+          srcset="images/fons_header.webp"
+          alt="Imatge del header"
+        />
+        <img
+          class="w-full object-cover h-44 rounded-t-lg"
+          src="images/fons_header.webp"
+          alt="Imatge del header"
+        />
+      </picture>
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-gray-200"
+      >
+        <h1
+          class="flex flex-nowrap text-center text-4xl sm:text-5xl lg:text-6xl"
+        >
+          Drive on a circuit
+        </h1>
+      </div>
+    </div>
+    <!-- Fi de títol de la pàgina -->
+
+    <!-- Formulari per crear un coche -->
+    <div class="flex-grow flex items-center justify-center mb-6 mt-6">
+      <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+        <div class="flex justify-center mb-6">
+          <img class="h-16 w-auto" src="images/logo.webp" alt="Logo" />
+        </div>
+        <h2 class="text-2xl font-bold text-gray-600 mb-6 text-center">
+          Add a New Car
+        </h2>
+        <form id="create-car-form">
+          <div class="mb-4">
+            <label for="name" class="block text-gray-700 mb-2">Name</label>
+            <input
+              type="text"
+              id="name"
+              class="w-full px-3 py-2 border rounded text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="model" class="block text-gray-700 mb-2">Model</label>
+            <input
+              type="text"
+              id="model"
+              class="w-full px-3 py-2 border rounded text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="color" class="block text-gray-700 mb-2">Color</label>
+            <input
+              type="text"
+              id="color"
+              class="w-full px-3 py-2 border rounded text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="image" class="block text-gray-700 mb-2"
+              >Image URL</label
+            >
+            <input
+              type="text"
+              id="image"
+              class="w-full px-3 py-2 border rounded text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full py-2 px-4 bg-gray-600 text-white rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          >
+            Add Car
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-4 text-center text-gray-500 text-sm">
+      <p>Turbo GT &copy; 2024. Tots els drets reservats.</p>
+
+      <a href="index.html" class="text-center font-medium me-4">Front page</a>
+      <a href="drive.html" class="text-center font-medium me-4"
+        >Drive on a circuit</a
+      >
+      <a href="routes.html" class="text-center font-medium text-sm">Routes</a>
+    </footer>
+    <!-- Fi de Footer -->
+    <script src="index.js" type="module"></script>
+  </body>
+</html>

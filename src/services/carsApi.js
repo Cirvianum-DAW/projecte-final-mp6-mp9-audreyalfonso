@@ -5,7 +5,7 @@ async function getAllCars() {
   return fetchFromApi(`cars`);
 }
 
-// Get a simgle car by ID
+// Get a single car by ID
 async function getCarById(userId, carId) {
   return fetchFromApi(`users/${userId}/cars/${carId}`);
 }
@@ -38,9 +38,9 @@ async function updateCar(userId, carId, car) {
 }
 
 // Delete a car
-async function deleteCar(carId) {
+async function deleteCar(userId, carId) {
   try {
-    await fetchFromApi(`cars/${carId}`, {
+    await fetchFromApi(`users/${userId}/cars/${carId}`, {
       method: "DELETE",
     });
   } catch (error) {
