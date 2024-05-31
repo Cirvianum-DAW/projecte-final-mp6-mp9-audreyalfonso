@@ -185,6 +185,14 @@
       Create a new car
     </a>
 
+    <a
+      href="editCar.html?id=${car.id}"
+      class="edit-car-button inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-neutral-600 rounded-lg hover:bg-neutral-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hidden"
+      data-car-id="${car.id}"
+    >
+      Edit Car
+    </a>
+
     <!-- Container amb els apartats de cotxes -->
     <div class="flex justify-center flex-wrap items-center py-10 gap-10">
       <!-- Aquí es mostraràn totds els cotxes de l'API -->

@@ -58,7 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //-------------------------------------------------
 
-import { getAllCars, createCar, deleteCar } from "./services/carsApi.js";
+import {
+  getAllCars,
+  createCar,
+  updateCar,
+  deleteCar,
+} from "./services/carsApi.js";
 
 //----------------- Llistar cotxes -------------------------
 
@@ -84,12 +89,6 @@ function createCarCard(car) {
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
           Enjoy the experience of driving a ${car.name} ${car.model} in ${car.color} color.
         </p>
-        <a
-          href="editCar.html"
-          class="edit-car-button inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-neutral-600 rounded-lg hover:bg-neutral-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" data-car-id="${car.id}"
-        >
-          Edit Car
-        </a>
         <button class="delete-car-button inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" data-car-id="${car.id}">
           Delete Car
         </button>
@@ -106,13 +105,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     );
     container.innerHTML = cars.map((car) => createCarCard(car)).join("");
 
-    // Añadir event listeners a los botones de eliminar
+    // Afegir event listeners als botons d'eliminar i editar
     const deleteButtons = document.querySelectorAll(".delete-car-button");
     deleteButtons.forEach((button) => {
       button.addEventListener("click", async (event) => {
         const carId = event.target.getAttribute("data-car-id");
 
-        // Obtener el userId del almacenamiento local
+        // Obtenir userId de l'emmagatzament local
         const user = JSON.parse(localStorage.getItem("user"));
         const userId = user.id;
 
@@ -188,7 +187,7 @@ async function handleDeleteCar(userId, carId) {
   try {
     await deleteCar(userId, carId);
     console.log("Car deleted successfully");
-    alert("Car dedleted successfully");
+    alert("Car deleted successfully");
     location.reload(); // Refresquem la pàgina després d'eliminar
   } catch (error) {
     console.error("Error deleting car:", error);
