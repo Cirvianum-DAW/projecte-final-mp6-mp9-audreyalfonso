@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (carId) {
     try {
       // Use getCarById with both userId and carId
-      const car = await getCarById(userId, carId);
+      const car = await getCarById(carId);
       if (car) {
         carIdField.value = car.id;
         nameField.value = car.name;
@@ -45,8 +45,6 @@ document.addEventListener("DOMContentLoaded", async function () {
       color: colorField.value,
       image: imageField.value,
     };
-
-    console.log("Data to be sent:", car);
 
     if (carIdField.value) {
       try {

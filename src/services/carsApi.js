@@ -6,8 +6,8 @@ async function getAllCars() {
 }
 
 // Get a single car by ID
-async function getCarById(userId, carId) {
-  return fetchFromApi(`users/${userId}/cars/${carId}`);
+async function getCarById(carId) {
+  return fetchFromApi(`/cars/${carId}`);
 }
 
 // Get a single user by ID
