@@ -57,11 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //-------------------------------------------------
-
 import {
   getAllCars,
-  createCar,
-  updateCar,
   deleteCar,
 } from "./services/carsApi.js";
 
@@ -89,8 +86,9 @@ function createCarCard(car) {
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
           Enjoy the experience of driving a ${car.name} ${car.model} in ${car.color} color.
         </p>
+        <a href="editCar.html?id=${car.id}" class="edit-car inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit</a>
         <button class="delete-car-button inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" data-car-id="${car.id}">
-          Delete Car
+          Delete
         </button>
       </div>
     </div>
@@ -124,60 +122,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 //----------------- Fi llistar cotxes -------------------------
-
-//------------------- Crear cotxes ----------------------------
-
-import fetchFromApi from "./services/fetchAPI.js";
-
-const createCarForm = document.getElementById("create-car-form");
-
-createCarForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
-
-  // Obtenim els valors del formulari
-  const name = document.getElementById("name").value;
-  const model = document.getElementById("model").value;
-  const color = document.getElementById("color").value;
-  const image = document.getElementById("image").value;
-
-  if (!isAuthenticated()) {
-    console.error("User is not authenticated");
-    return;
-  }
-
-  // Obtenim l'ID de l'usuari autentificat
-  const user = JSON.parse(localStorage.getItem("user"));
-  const userId = user.id;
-
-  try {
-    // Contruim l'objecte nou del cotxe
-    const newCar = {
-      name,
-      model,
-      color,
-      image,
-      userId,
-    };
-
-    // Realitzem una sol·licitud POST per afegir el nou cotxe a la API de cotxes
-    const addedCar = await fetchFromApi("cars", {
-      method: "POST",
-      body: newCar,
-    });
-
-    console.log("Car added successfully:", addedCar);
-
-    // Mostrem un missatge d'èxit
-    alert("Car added successfully: " + addedCar.name);
-
-    // Refresquem la pàgina i redirigim
-    window.location.href = "drive.html";
-  } catch (error) {
-    console.error("Error adding car:", error.message);
-  }
-});
-
-//----------------- Fi crear cotxes -------------------------
 
 //------------------- Eliminar cotxes -----------------------
 
