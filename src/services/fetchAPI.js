@@ -14,13 +14,28 @@ async function fetchFromApi(endpoint, options = {}) {
 
   if (options.body) settings.body = JSON.stringify(options.body);
 
-  const response = await fetch(url, settings);
+  // const response = await fetch(url, settings);
 
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+  // if (!response.ok) {
+  //   throw new Error(`HTTP error! status: ${response.status}`);
+  //   // throw new Error(`HTTP error! status: ${response.status}`);
+  // }
+
+  // return response.json();
+
+  try {
+    const response = await fetch(url, settings);
+
+    if (!response.ok) {
+      const errorDetails = await response.json();
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorDetails.message}`);
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error('Fetch error: ', error);
+    throw error; // Re-throw the error after logging it
   }
-
-  return response.json();
 }
 
 export default fetchFromApi;

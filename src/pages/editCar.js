@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.log("Car updated successfully:", updatedCar);
 
         // Redirect back to models page
-        window.location.href = "drive.html";
+        // window.location.href = "drive.html";
       } catch (error) {
         console.error("Error updating car:", error);
         alert("Error updating car: " + error.message);

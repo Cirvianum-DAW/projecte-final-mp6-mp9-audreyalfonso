@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const routesLink = document.getElementById("routes-link");
   const informationLink = document.getElementById("information-link");
   const loginLink = document.getElementById("login-link");
+  const registerLink = document.getElementById("register-link");
   const logoutLink = document.getElementById("logout-link");
 
   const mobileDriveLink = document.getElementById("mobile-drive-link");
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "mobile-information-link"
   );
   const mobileLoginLink = document.getElementById("mobile-login-link");
+  const mobileRegisterLink = document.getElementById("mobile-register-link");
   const mobileLogoutLink = document.getElementById("mobile-logout-link");
 
   if (isAuthenticated()) {
@@ -35,14 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
     routesLink.classList.remove("hidden");
     informationLink.classList.remove("hidden");
     logoutLink.classList.remove("hidden");
+    loginLink.classList.add("hidden");
+    registerLink.classList.add("hidden");
 
     mobileDriveLink.classList.remove("hidden");
     mobileRoutesLink.classList.remove("hidden");
     mobileInformationLink.classList.remove("hidden");
     mobileLogoutLink.classList.remove("hidden");
-
-    loginLink.classList.add("hidden");
     mobileLoginLink.classList.add("hidden");
+    mobileRegisterLink.classList.add("hidden");
   }
 
   logoutLink.addEventListener("click", () => {
@@ -57,10 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //-------------------------------------------------
-import {
-  getAllCars,
-  deleteCar,
-} from "./services/carsApi.js";
+import { getAllCars, deleteCar } from "./services/carsApi.js";
 
 //----------------- Llistar cotxes -------------------------
 
