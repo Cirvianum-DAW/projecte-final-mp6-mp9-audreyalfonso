@@ -50,12 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   logoutLink.addEventListener("click", () => {
     logout();
-    window.location.reload();
+    window.location.href = "index.html";
   });
 
   mobileLogoutLink.addEventListener("click", () => {
     logout();
-    window.location.reload();
+    window.location.href = "index.html";
   });
 });
 

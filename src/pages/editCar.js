@@ -57,12 +57,14 @@ document.addEventListener("DOMContentLoaded", async function () {
         const userId = user.id;
 
         // Update existing car
-        console.log("Updating car with data:", userId, carIdField.value, car);
         const updatedCar = await updateCar(userId, carIdField.value, car);
         console.log("Car updated successfully:", updatedCar);
 
+        // Mostrem un missatge d'èxit
+        alert("Car updated successfully");
+
         // Redirect back to models page
-        // window.location.href = "drive.html";
+        window.location.href = "drive.html";
       } catch (error) {
         console.error("Error updating car:", error);
         alert("Error updating car: " + error.message);

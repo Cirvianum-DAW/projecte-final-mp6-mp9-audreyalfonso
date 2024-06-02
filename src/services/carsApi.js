@@ -31,7 +31,7 @@ async function updateCar(userId, carId, car) {
   car.userId = userId;
   return fetchFromApi(`cars/${carId}`, {
     method: "PUT",
-    body: JSON.stringify(car),
+    body: car,
     headers: {
       "Content-Type": "application/json",
     },
