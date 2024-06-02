@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       console.log('Form submitted');
       await login(username, password);
-      window.location.href = '../src/index.html';
+      window.location.href = '../index.html';
     } catch (error) {
       console.error(error);
       errorMessage.textContent = 'Login failed. Please try again.';
