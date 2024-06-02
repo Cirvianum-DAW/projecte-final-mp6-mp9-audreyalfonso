@@ -12,6 +12,32 @@ createCarForm.addEventListener("submit", async (event) => {
   const color = document.getElementById("color").value;
   const image = document.getElementById("image").value;
 
+  // Validacions
+  if (!name || !model || !color || !image) {
+    alert("All fields are required");
+    return;
+  }
+
+  if (name.length < 3) {
+    alert("Name must be at least 3 characters long");
+    return;
+  }
+
+  if (model.length < 2) {
+    alert("Model must be at least 2 characters long");
+    return;
+  }
+
+  if (color.length < 3) {
+    alert("Color must be at least 3 characters long");
+    return;
+  }
+
+  if (!isValidUrl(image)) {
+    alert("Invalid image URL");
+    return;
+  }
+
   if (!isAuthenticated()) {
     console.error("User is not authenticated");
     return;
@@ -48,3 +74,17 @@ createCarForm.addEventListener("submit", async (event) => {
     console.error("Error adding car:", error.message);
   }
 });
+
+// Funció per validar URLs
+function isValidUrl(url) {
+  const urlPattern = new RegExp(
+    "^(https?:\\/\\/)?" + // validate protocol
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // validate domain name
+      "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR validate ip (v4) address
+      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // validate port and path
+      "(\\?[;&a-z\\d%_.~+=-]*)?" + // validate query string
+      "(\\#[-a-z\\d_]*)?$",
+    "i"
+  ); // validate fragment locator
+  return !!urlPattern.test(url);
+}

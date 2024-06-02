@@ -46,6 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileLogoutLink.classList.remove("hidden");
     mobileLoginLink.classList.add("hidden");
     mobileRegisterLink.classList.add("hidden");
+  } else {
+    // Redirigir a la página de inicio de sesión si el usuario no está autenticado
+    const protectedPages = ["drive.html", "routes.html", "informacio.html"];
+    const currentPage = window.location.pathname.split("/").pop();
+
+    if (protectedPages.includes(currentPage)) {
+      window.location.href = "login.html";
+    }
   }
 
   logoutLink.addEventListener("click", () => {

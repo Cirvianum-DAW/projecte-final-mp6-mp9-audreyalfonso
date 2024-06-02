@@ -1,11 +1,12 @@
-# Preparació:
+# Llista de tasques:
 1. Registrar-se i iniciar sessió
-2. Afegir un nou cotxe
-3. Editar un cotxe
-4. Eliminar un cotxe
-5. Tancar sessió
+2. Navegar per la web i trobar l'apartat on es fan les operacions CRUD
+3. Afegir un nou cotxe
+4. Editar un cotxe
+5. Eliminar un cotxe
+6. Tancar sessió
 
-# Realització de proves:
+# Notes d'observació:
 
 1. Hassan (Amic):
 - En general ha sapigut moure's ràpid per la web, ho ha identificat tot fàcilment.
@@ -53,8 +54,20 @@
 
 # Millores:
 - Afegir un "Confirm password" al formulari del registre.
-- Posar també l'opció de veure la teva contrasenya quan l'estas introduïnt (icona de l'ull).
+- Posar també l'opció de veure la teva contrasenya quan l'estàs introduïnt (icona de l'ull).
 - Poder traduir l'idioma de la web.
 - A part de poder afegir una URL d'una imatge, afegir també l'opció de poder descarregar una imatge de l'ordinador.
 
 ------------------------------------------------------------------
+
+# Informe d'usabilitat:
+
+Resumint, la web no és gens complicada de fer servir ja que és molt intuitiva. Els problemes principals veig que són l'idioma de la web, i el camp "Image URL".
+
+------------------------------------------------------------------
+
+# Implementa els canvis:
+He fet alguns canvis que m'han comentat:
+
+- He implementat el "Confirm password" i he aprofitat per afegir més validacions a tots els formularis.
+- Els usuaris que no estan autentificats, no poden veure certes pàgines (encara que intentin entrar per l'enllaç).
